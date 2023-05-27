@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+}
+
+body {
+    background-image: url(th.jpg);
+    background-size: cover;
+}
+fieldset {
+    background-image: url(pexels-photo-2736613.webp);
+    background-size: cover;
+}

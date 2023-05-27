@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+
+body {
+    background-image: url(canada\ backg.jpg);
+    background-size: cover;
+}
+
+p {
+    font-size: 25px;
+    background-color: rgb(230, 198, 111);
+    border: 1px solid black;
+  }
+
+img{
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border: 1px solid black;
+}
+  

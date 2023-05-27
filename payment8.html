@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>PAYMENT</title>
+    <link rel="stylesheet" href="css_7.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+    <h1>ONLINE SHOP PURCHASE</h1>
+    <form action="https://khairilayin.github.io/Grocery_Khairil/thanks" method="get">
+        <fieldset>
+    <legend>PAYMENT</legend><br><br>
+
+    Flower:<select> name="flower" id="flower">
+        <option value="None">None</option>
+        <option value="Lotus">Lotus</option>
+        <option value="Apricot Blossom">Apricot Blossom</option>
+        <option value="Hai Phong Rose">Hai Phong Rose</option>
+        <option value="Orchids">Orchids</option>
+        <option value="Yellow Tulips">Yellow Tulips</option>
+        <option value="Japanese Primrose">Japanese Primrose</option>
+        <option value="Iris">Iris</option>
+        <option value="Carnations">Carnations</option>
+        <option value="Ixora">Ixora</option>
+        <option value="Bougainvillea">Bougainvillea</option>
+        <option value="Pagoda Flower">Pagoda Flower</option>
+        <option value="Hibiscus">Hibiscus</option>
+        <option value="Trillium Grandiflorum">Trillium Grandiflorum</option>
+        <option value="Blue Flag Iris">Blue Flag Iris</option>
+        <option value="Lilium Philadelphicum">Lilium Philadelphicum</option>
+        <option value="Fireweed">Fireweed</option>
+    </select><br><br>
+        
+        Payment Information.<br><br>
+
+        Card number :<input type="text" name="CardNumber"><br>
+   
+        Expiry Date: <input type="text" name="expiryDate"><br>
+
+        CVV: <input type="text" name="cvv" ><br>
+
+
+    <form id="flower_price">
+
+        <label for="flower_grade">Flower Grade :</label>
+        <input type="text" id="flower_grade">
+
+        <br>
+
+        <label for="flower_unit">Number [per unit] :</label>
+        <input type="text" id="flower_unit">
+
+        <br>
+
+        <button type="button" onclick="calculatePrice()">Done</button><br>
+
+    </form>
+
+    <div class="total-result">
+        <span>Your total price: MYR</span>
+        <span class="price"></span>
+    </div>
+<br>
+    <script>
+        function calculatePrice() {
+            var grade = document.getElementById("flower_grade").value;
+            var unit = document.getElementById("flower_unit").value;
+
+            if (grade == "" || unit == "") {
+                alert("Please enter your flower grade and unit!");
+                return;
+            }
+
+            var price = calculateTotalPrice(grade, unit);
+            var gradeValue = getGradeValue(grade);
+            var gradeLabel = getGradeLabel(gradeValue);
+
+            document.getElementsByClassName("price")[0].innerHTML = price.toFixed(2);
+            document.getElementsByClassName("flower-grade")[0].innerHTML = gradeLabel;
+        }
+
+        function calculateTotalPrice(grade, unit) {
+            var gradeValue = getGradeValue(grade);
+            var unitValue = parseFloat(unit);
+            
+            return gradeValue * unitValue;
+        }
+
+        function getGradeValue(grade) {
+            if (grade == 1) {
+                return 2.99;
+            } else if (grade == 2) {
+                return 3.99;
+            } else if (grade == 3) {
+                return 9.99;
+            } else {
+                return 0;
+            }
+        }
+
+        function getGradeLabel(gradeValue) {
+            if (gradeValue == 2.99) {
+                return "Grade 1";
+            } else if (gradeValue == 3.99) {
+                return "Grade 2";
+            } else if (gradeValue == 9.99) {
+                return "Grade 3";
+            } else {
+                return "Unknown";
+            }
+        }
+    </script>
+        <input type="submit" value="Comfirm">
+        <input type="reset" value="reset">
+    </fieldset>
+
+    </form>
+    </div>
+</body>
+
+</html>
